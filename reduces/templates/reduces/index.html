@@ -10,8 +10,10 @@
     <meta name="description" content="Выпускной проект Django">
     <meta name="author" content="Дмитрий Шелухин">
 
-
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'reduces/img/favicon.ico' %}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'reduces/css/main.css' %}">
+
     <title>{% block site_title %}{% endblock site_title %}</title>
 </head>
 <body>
@@ -19,6 +21,7 @@
     <header>
         <div class="header_block">
             <div id="logo">
+                <img src="{% static 'reduces/img/logo.png' %}">
                 <h1>Отрежем лишнее</h1>
             </div>
 
@@ -45,10 +48,10 @@
             </div>
 
             <div id="social_block">
-                <a href="">telegram</a>
-                <a href="">instagram</a>
-                <a href="">vk</a>
-                <a href="">facebook</a>
+                <a href=""><i class="fab fa-telegram-plane"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-vk"></i></a>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
     </footer>
