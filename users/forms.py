@@ -35,10 +35,13 @@ class UserUpdateForm(forms.ModelForm):
 
     Allows change username and email.
     """
-    email = forms.EmailField()
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'input'}), label='Почта')
 
     class Meta:
         model = User
         fields = ['username', 'email']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'input'}),
+        }
 
 
