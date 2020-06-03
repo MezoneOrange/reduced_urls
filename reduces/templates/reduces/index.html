@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="description" content="Выпускной проект Django">
+    <meta name="author" content="Дмитрий Шелухин">
+
+
+    <link rel="stylesheet" href="{% static 'reduces/css/main.css' %}">
+    <title>{% block site_title %}{% endblock site_title %}</title>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="header_block">
+            <div id="logo">
+                <h1>Отрежем лишнее</h1>
+            </div>
+
+            <div id="navigation">
+                <ul>
+                    <li><a href="">Главная</a></li>
+                    <li><a href="">Про нас</a></li>
+                    <li><a href="">Войти</a></li>
+                    <li><a href="">Регистрация</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    {% block main_block %}
+    {% endblock main_block %}
+
+    <!-- footer -->
+    <footer>
+        <hr>
+        <div class="footer_block">
+            <div id="rights">
+                <p>Все права защищены&rights;</p>
+            </div>
+
+            <div id="social_block">
+                <a href="">telegram</a>
+                <a href="">instagram</a>
+                <a href="">vk</a>
+                <a href="">facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script   src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="   crossorigin="anonymous"></script>
+    <script src="{% static 'reduces/js/index.js' %}"></script>
+</body>
+</html>
