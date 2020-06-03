@@ -4,6 +4,6 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.profile, name="profile"),
-    path('registration/', views.register, name="registration"),
+    path('', views.ProfileUpdate.as_view(), name="profile"),
+    path('registration/', views.RegisterUser.as_view(), name="registration"),
 ]

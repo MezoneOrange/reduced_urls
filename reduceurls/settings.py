@@ -129,6 +129,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # page where guest would be redirected when using the login_required() decorator, LoginRequiredMixin, or AccessMixin.
-LOGIN_URL = 'auth'
+LOGIN_URL = 'home'
 # page where user would be redirected after Login in system.
 LOGIN_REDIRECT_URL = 'home'

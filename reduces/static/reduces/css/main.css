@@ -20,6 +20,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 5px;
     padding: 15px 25px;
     font-size: 18px;
+    cursor: pointer;
 }
 
 
@@ -91,7 +92,7 @@ header .header_block {
     list-style-type: none;
 }
 
-#navigation > ul li {
+#navigation > ul li a {
     border: 0;
     border-radius: 5px;
     padding: 15px;
@@ -99,14 +100,12 @@ header .header_block {
     margin-left: 15px;
 }
 
-#navigation > ul li:hover {
+#navigation > ul li a:hover {
     background-color: #191919;
-}
-
-#navigation > ul li:hover a {
     color: #fff;
     font-weight: 500;
 }
+
 
 /* main */
 main {
