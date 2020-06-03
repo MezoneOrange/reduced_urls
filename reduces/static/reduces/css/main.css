@@ -146,7 +146,59 @@ main {
     justify-content: center;
 }
 
+/* form */
 
+.form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #191919;
+    border-radius: 2px;
+    padding: 30px;
+    -webkit-box-shadow: 0px 2px 8px 0px rgba(107,107,107,1);
+    -moz-box-shadow: 0px 2px 8px 0px rgba(107,107,107,1);
+    box-shadow: 0px 2px 8px 0px rgba(107,107,107,1);
+    background-color: #fff;
+    box-sizing: content-box;
+}
+
+.form form {
+    margin-top: 30px;
+}
+
+.form form .field {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width: 100%;
+    border-radius: 5px;
+    padding: 15px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 18px;
+    color: #929292;
+    border: 1px solid #929292;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.error {
+    margin: 15px 15px;
+    color: red;
+    font-weight: 300;
+}
+
+.help {
+    margin: 15px 15px;
+    color: #adadad;
+    font-weight: 400;
+}
+
+.form form button {
+    align-self: flex-end;
+}
 
 /* footer */
 footer {

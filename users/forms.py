@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import password_validation
+from django.contrib.auth.password_validation import validate_password
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -8,7 +10,11 @@ class UserRegistrationForm(UserCreationForm):
 
     email - email field, add email field to registration form.
     """
-    email = forms.EmailField()
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'input'}), label='Почта')
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}),
+                                label='Пароль',
+                                help_text=password_validation.password_validators_help_text_html(),
+                                validators=[validate_password])
 
     def __init__(self, *args, **kwargs):
         """Delete passwors2 field from registration form."""
@@ -18,6 +24,10 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'input'}),
+            'password1': forms.PasswordInput(attrs={'class': 'input'})
+        }
 
 
 class UserUpdateForm(forms.ModelForm):
@@ -30,3 +40,5 @@ class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email']
+
+
