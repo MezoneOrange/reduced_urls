@@ -88,6 +88,16 @@ header .header_block {
     font-weight: 500;
 }
 
+/* main */
+main {
+    width: 100%;
+    box-sizing: content-box;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: 400px;
+}
+
+
 /* footer */
 footer {
     margin-top: 50px;
