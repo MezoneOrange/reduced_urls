@@ -28,14 +28,13 @@ class RegisterUser(View):
         }
         return render(request, self.template_name, data)
 
-    @method_decorator(login_required)
     def post(self, request):
         form = self.form_class(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get("username")
             messages.success(request, f'Пользователь {username} был успешно создан!')
-            return redirect('home')
+            return redirect('auth')
         messages.error(request, f'Пользователь при создании пользователя произошла ошибка')
         data = {
             'title': 'Регистрация',
@@ -49,6 +48,7 @@ class ProfileUpdate(LoginRequiredMixin, View):
     model = User
     template_name = 'users/profile.html'
 
+    @method_decorator(login_required)
     def get(self, request):
         form = self.form_class(instance=request.user)
         data = {
@@ -57,6 +57,7 @@ class ProfileUpdate(LoginRequiredMixin, View):
         }
         return render(request, self.template_name, data)
 
+    @method_decorator(login_required)
     def post(self, request):
         form = self.form_class(request.POST, instance=request.user)
         if form.is_valid():

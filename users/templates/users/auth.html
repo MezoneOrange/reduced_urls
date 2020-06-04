@@ -39,6 +39,12 @@
         {% endfor %}
         <button type="submit" class="btn btn_link mt-5">Отправить</button>
     </form>
+    <div class="form_footer">
+        <p>Забыли пароль?</p> <a href="{% url 'password_reset' %}">Востановить пароль</a>
+    </div>
+    <div class="form_footer">
+        <p>Не имеете учетной записи?</p> <a href="{% url 'registration' %}">Зарегистрироваться</a>
+    </div>
 </div>
 
 

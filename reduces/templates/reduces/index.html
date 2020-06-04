@@ -29,10 +29,9 @@
                 <ul>
                     <li><a href="{% url 'home' %}">Главная</a></li>
                     <li><a href="">Про нас</a></li>
-                    <li><a href="">Про нас</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}">Профиль</a></li>
-                    <li><a href="{% url 'exit' %}">Выйти</a></li>
+                    <li><a href="{% url 'profile' %}">Ссылки</a></li>
                 {% else %}
                     <li><a href="{% url 'auth' %}">Войти</a></li>
                     <li><a href="{% url 'registration' %}">Регистрация</a></li>

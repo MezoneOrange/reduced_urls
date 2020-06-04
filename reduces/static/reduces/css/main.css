@@ -230,6 +230,12 @@ main {
 }
 
 /* profile */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .profile,
 .profile h2 {
     margin-bottom: 35px;
@@ -247,6 +253,42 @@ main {
 .profile p span {
     font-weight: 400;
     font-size: 16px;
+}
+
+.profile div {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.form_footer {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    height: 50px;
+}
+
+.form_footer a {
+    color: #2cce2c;
+    margin-left: 20px;
+    transition: all 300ms ease;
+}
+
+.form_footer a:hover {
+    color: #197719;
+    font-size: 20px;
+}
+
+.form .field .confirm {
+    margin-bottom: 40px;
+}
+
+.form .field .confirm ul li {
+    margin-bottom: 15px;
+    margin-left: 25px;
+    color: #adadad;
+    line-height: 25px;
+    font-weight: 400;
 }
 
 /* footer */
