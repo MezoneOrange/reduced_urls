@@ -6,6 +6,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.utils.safestring import mark_safe
 
 
+
 class UserRegistrationForm(UserCreationForm):
     """Form for user registration.
 
@@ -50,7 +51,9 @@ class UserUpdateForm(forms.ModelForm):
 
     Allows change username and email.
     """
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'input'}), label='Почта')
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'input'}),
+                             label='Почта',
+                             validators=[validate_password])
 
     class Meta:
         model = User
@@ -67,3 +70,11 @@ class UserLoginForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        cleaned_data = super(UserLoginForm, self).clean()
+        user = self.user_cache  # set by super class
+        if user.my_class.expired:
+            raise forms.ValidationError('This User has Expired!')
+        return cleaned_data
+

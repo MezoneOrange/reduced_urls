@@ -29,9 +29,14 @@
                 <ul>
                     <li><a href="{% url 'home' %}">Главная</a></li>
                     <li><a href="">Про нас</a></li>
+                    <li><a href="">Про нас</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Профиль</a></li>
+                    <li><a href="{% url 'exit' %}">Выйти</a></li>
+                {% else %}
                     <li><a href="{% url 'auth' %}">Войти</a></li>
                     <li><a href="{% url 'registration' %}">Регистрация</a></li>
-                    <li><a href="{% url 'profile' %}">Профиль</a></li>
+                {% endif %}
                 </ul>
             </div>
         </div>
@@ -39,6 +44,16 @@
 
     <!-- main section of a page -->
     <main>
+        {% if messages %}
+            {% for mess in messages %}
+                {% if mess.tags != 'error' %}
+                    <div class="form">
+                        {{ mess }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
         {% block main_block %}
         {% endblock main_block %}
     </main>

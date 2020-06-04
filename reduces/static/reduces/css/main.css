@@ -197,6 +197,15 @@ main {
     margin-bottom: 25px;
 }
 
+.error_block:not(:empty) {
+    margin-top: 40px;
+
+}
+
+.error_block:not(:empty) ul li {
+    color: #d43f3f;
+}
+
 .error {
     margin: 15px 15px;
     color: red;
