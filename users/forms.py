@@ -6,7 +6,6 @@ from django.contrib.auth.password_validation import validate_password
 from django.utils.safestring import mark_safe
 
 
-
 class UserRegistrationForm(UserCreationForm):
     """Form for user registration.
 

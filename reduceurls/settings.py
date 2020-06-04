@@ -132,3 +132,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_URL = 'auth'
 # page where user would be redirected after Login in system.
 LOGIN_REDIRECT_URL = 'profile'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mezorservice123@gmail.com'
+EMAIL_HOST_PASSWORD = 'gqergyefgimrjdgn'
+EMAIL_PORT = 587
