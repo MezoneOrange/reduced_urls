@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import password_validation
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.password_validation import validate_password
 from django.utils.safestring import mark_safe
 
@@ -60,3 +60,10 @@ class UserUpdateForm(forms.ModelForm):
         }
 
 
+class UserLoginForm(AuthenticationForm):
+    """Customization for login form."""
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}), label='Пароль')
+
+    def __init__(self, *args, **kwargs):
+        super(UserLoginForm, self).__init__(*args, **kwargs)
