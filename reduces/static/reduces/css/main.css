@@ -23,7 +23,6 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
-
 .btn_link {
     border-color: #696969;
     background-color: #8ae691;
@@ -35,6 +34,11 @@ h1, h2, h3, h4, h5, h6 {
     border-color: #32963a;
     color: #fff;
 }
+
+.mt-5 {
+    margin-top: 20px;
+}
+
 
 body {
     width: 100%;
@@ -161,6 +165,11 @@ main {
     box-sizing: content-box;
 }
 
+.form h2:only-of-type {
+    font-size: 40px;
+    text-align: center;
+}
+
 .form form {
     margin-top: 30px;
 }
@@ -168,6 +177,11 @@ main {
 .form form .field {
     display: flex;
     flex-direction: column;
+}
+
+.label {
+    font-weight: 500;
+    font-size: 18px;
 }
 
 .input {
@@ -189,16 +203,40 @@ main {
     font-weight: 300;
 }
 
-.help {
-    margin-bottom: 25px;
-    margin-left: 25px;
+.help_list {
+    margin-bottom: 40px;
+}
 
+.help, .help_list_item {
+    margin-bottom: 15px;
+    margin-left: 25px;
     color: #adadad;
+    line-height: 25px;
     font-weight: 400;
 }
 
 .form form button {
     align-self: flex-end;
+}
+
+/* profile */
+.profile,
+.profile h2 {
+    margin-bottom: 35px;
+}
+
+.profile p {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.profile p span {
+    font-weight: 400;
+    font-size: 16px;
 }
 
 /* footer */

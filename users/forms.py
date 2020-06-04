@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import password_validation
 from django.contrib.auth.password_validation import validate_password
+from django.utils.safestring import mark_safe
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -10,10 +11,21 @@ class UserRegistrationForm(UserCreationForm):
 
     email - email field, add email field to registration form.
     """
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'input'}), label='Почта')
+    help_password_text = ("<ul class='help_list'>" +
+                          "<li class='help_list_item'>Ваш пароль не должен совпадать с ваши именем" +
+                          " или другой персональной информацией" +
+                          " или быть слишком похожим на нее.</li>" +
+                          "<li class='help_list_item'>Ваш пароль должен содержать как минимум 8 символов.</li>" +
+                          "<li class='help_list_item'>Ваш пароль не может быть одним из" +
+                          " широко распростарненных паролей.</li>" +
+                          "<li class='help_list_item'>Ваш пароль не может состоять только из цифр.</li>" +
+                          "</ul>")
+
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'input'}),
+                             label='Почта')
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}),
                                 label='Пароль',
-                                help_text=password_validation.password_validators_help_text_html(),
+                                help_text=mark_safe(help_password_text),
                                 validators=[validate_password])
 
     def __init__(self, *args, **kwargs):
@@ -27,6 +39,9 @@ class UserRegistrationForm(UserCreationForm):
         widgets = {
             'username': forms.TextInput(attrs={'class': 'input'}),
             'password1': forms.PasswordInput(attrs={'class': 'input'})
+        }
+        help_texts = {
+            'email': "Текст для почты"
         }
 
 

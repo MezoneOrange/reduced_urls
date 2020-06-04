@@ -7,8 +7,8 @@
 <div class="form">
     <div class="profile">
         <h2>Кабинет пользователя</h2>
-        <p>{{ user.username }}</p>
-        <p>{{ user.email }}</p>
+        <p>@{{ user.username }}</p>
+        <p>Email: <span>{{ user.email }}</span></p>
 
 
         <!-- <div>
@@ -29,7 +29,7 @@
                         <p class="error">{{ error }}</p>
                     {% endfor %}
 
-                    <label for="{{ field.id_for_label }}">{{ field.label }} :</label>
+                    <label for="{{ field.id_for_label }}" class="label">{{ field.label }} :</label>
                     {{ field }}
 
 
@@ -39,7 +39,7 @@
                 </div>
 
             {% endfor %}
-            <button type="submit" class="btn">Отправить</button>
+            <button type="submit" class="btn btn_link mt-5">Отправить</button>
         </form>
     </div>
 </div>
