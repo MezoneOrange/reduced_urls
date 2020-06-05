@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.safestring import mark_safe
 from django import forms
+from django.contrib.messages.views import SuccessMessageMixin
 
 from .models import Link
 from .forms import UserRegistrationForm
@@ -114,11 +115,12 @@ class ProfileUpdate(LoginRequiredMixin, View):
         return render(request, self.template_name, data)
 
 
-class UserLinks(LoginRequiredMixin, CreateView):
+class UserLinks(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Link
     fields = ['long_link', 'reduced_link']
     template_name = 'users/links.html'
     context_object_name = 'form'
+    success_message = 'Ссылка была успешно добавлена.'
 
     def form_valid(self, form):
         form.instance.author = self.request.user

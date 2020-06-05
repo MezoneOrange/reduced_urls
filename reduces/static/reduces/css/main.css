@@ -151,6 +151,11 @@ main {
 
 /* form */
 
+.message {
+    background-color: #8ae691!important;
+    text-align: center;
+}
+
 .form {
     width: 50%;
     margin-left: auto;
