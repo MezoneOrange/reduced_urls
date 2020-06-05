@@ -2,6 +2,8 @@
 
 {% block site_title %}Авторизация{% endblock site_title %}
 
+{% block page_login %}active_page{% endblock %}
+
 {% block main_block %}
 
 <div class="form">
@@ -40,10 +42,10 @@
         <button type="submit" class="btn btn_link mt-5">Отправить</button>
     </form>
     <div class="form_footer">
-        <p>Забыли пароль?</p> <a href="{% url 'password_reset' %}">Востановить пароль</a>
+        <p>Забыли пароль?<a href="{% url 'password_reset' %}">Востановить пароль</a></p>
     </div>
     <div class="form_footer">
-        <p>Не имеете учетной записи?</p> <a href="{% url 'registration' %}">Зарегистрироваться</a>
+        <p>Не имеете учетной записи? <a href="{% url 'registration' %}">Зарегистрироваться</a></p>
     </div>
 </div>
 

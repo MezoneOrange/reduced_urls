@@ -2,6 +2,8 @@
 
 {% block site_title %}{{ title }}{% endblock site_title %}
 
+{% block page_sign %}active_page{% endblock %}
+
 {% block main_block %}
 
 <div class="form">
@@ -39,7 +41,7 @@
         <button type="submit" class="btn btn_link mt-5">Отправить</button>
     </form>
     <div class="form_footer">
-        <p>Уже зарегистрированы?</p> <a href="{% url 'auth' %}">Войдите в учетную запись</a>
+        <p>Уже зарегистрированы?<a href="{% url 'auth' %}">Войдите в учетную запись</a></p>
     </div>
 </div>
 

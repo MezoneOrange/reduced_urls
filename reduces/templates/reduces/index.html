@@ -27,14 +27,14 @@
 
             <div id="navigation">
                 <ul>
-                    <li><a href="{% url 'home' %}">Главная</a></li>
-                    <li><a href="">Про нас</a></li>
+                    <li><a href="{% url 'home' %}" class={% block page_main %}{% endblock %}>Главная</a></li>
+                    <li><a href="" class={% block page_about %}{% endblock %}>Про нас</a></li>
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'profile' %}">Профиль</a></li>
-                    <li><a href="{% url 'links' user.username %}">Ссылки</a></li>
+                    <li><a href="{% url 'profile' %}" class={% block page_profile %}{% endblock %}>Профиль</a></li>
+                    <li><a href="{% url 'links' user.username %}" class={% block page_links %}{% endblock %}>Ссылки</a></li>
                 {% else %}
-                    <li><a href="{% url 'auth' %}">Войти</a></li>
-                    <li><a href="{% url 'registration' %}">Регистрация</a></li>
+                    <li><a href="{% url 'auth' %}" class={% block page_login %}{% endblock %}>Войти</a></li>
+                    <li><a href="{% url 'registration' %}" class={% block page_sign %}{% endblock %}>Регистрация</a></li>
                 {% endif %}
                 </ul>
             </div>
