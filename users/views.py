@@ -9,6 +9,8 @@ from django.views import View
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.safestring import mark_safe
+from django.shortcuts import get_object_or_404
+from django.urls import reverse_lazy
 
 from .forms import UserRegistrationForm
 from .forms import UserUpdateForm
