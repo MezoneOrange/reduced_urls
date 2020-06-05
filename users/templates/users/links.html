@@ -1,0 +1,51 @@
+{% extends 'reduces/index.html' %}
+
+{% block site_title %}{{ title }}{% endblock site_title %}
+
+{% block main_block %}
+
+<div class="form">
+    <h2>Создание ссылок</h2>
+    {% if messages %}
+        {% for mess in messages %}
+            {% if mess.tags == 'error' %}
+                <div class="error_block">
+                    {{ mess }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {% for non_fiels_error in form.non_fiels_errors %}
+            <p class="error">{{ non_fiels_error }}</p>
+        {% endfor %}
+        {% for field in form %}
+            <div class="field">
+
+                <label for="{{ field.id_for_label }}" class="label">{{ field.label }} :</label>
+                {% for error in field.errors %}
+                    <p class="error">{{ error }}</p>
+                {% endfor %}
+
+                {{ field }}
+
+                {% if field.help_text %}
+                    <p class="help">{{ field.help_text }}</p>
+                {% endif %}
+            </div>
+
+        {% endfor %}
+        <button type="submit" class="btn btn_link mt-5">Создать ссылку</button>
+    </form>
+
+    <div>
+        {% for link in links %}
+            <p>Ссылка - <a href="{{ link.long_link }}" target="_blank">/link/{{ link.reduced_link }}</a></p>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock main_block %}

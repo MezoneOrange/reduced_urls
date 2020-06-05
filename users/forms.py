@@ -5,6 +5,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.password_validation import validate_password
 from django.utils.safestring import mark_safe
 
+from .models import Link
+
 
 class UserRegistrationForm(UserCreationForm):
     """Form for user registration.
@@ -77,3 +79,16 @@ class UserLoginForm(AuthenticationForm):
             raise forms.ValidationError('This User has Expired!')
         return cleaned_data
 
+
+class UserLinksForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(UserLinksForm, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = Link
+        fields = ['long_link', 'reduced_link']
+        widgets = {
+            'long_link': forms.TextInput(attrs={'class': 'input'}),
+            'reduced_link': forms.TextInput(attrs={'class': 'input'}),
+        }

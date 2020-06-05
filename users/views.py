@@ -6,13 +6,17 @@ from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.views import View
+from django.views.generic import CreateView
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.safestring import mark_safe
+from django import forms
 
+from .models import Link
 from .forms import UserRegistrationForm
 from .forms import UserUpdateForm
 from .forms import UserLoginForm
+from .forms import UserLinksForm
 
 
 class RegisterUser(View):
@@ -97,6 +101,35 @@ class ProfileUpdate(LoginRequiredMixin, View):
             'form': form
         }
         return render(request, self.template_name, data)
+
+
+class UserLinks(LoginRequiredMixin, CreateView):
+    model = Link
+    fields = ['long_link', 'reduced_link']
+    template_name = 'users/links.html'
+    context_object_name = 'form'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(UserLinks, self).form_valid(form)
+
+    def get_form(self, form_class=None):
+        if form_class is None:
+            form_class = self.get_form_class()
+
+        form = super(UserLinks, self).get_form(form_class)
+        form.fields['long_link'].widget = forms.TextInput(attrs={'placeholder': 'Введите ссылку',
+                                                                 'class': 'input'})
+        form.fields['reduced_link'].widget = forms.TextInput(attrs={'placeholder': 'Введите сокращение',
+                                                                    'class': 'input'})
+        return form
+
+    def get_context_data(self, **kwards):
+        # передача доп данных
+        context = super(UserLinks, self).get_context_data(**kwards)
+        context['title'] = f"Ссылки {self.kwargs.get('username')}"
+        context['links'] = list(Link.objects.filter(author=self.request.user).values())
+        return context
 
 
 def login(request):

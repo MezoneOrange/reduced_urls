@@ -2,10 +2,12 @@ from django.urls import path
 from django.contrib.auth import views as auth_view
 
 from . import views
+from .forms import UserLinksForm
 
 
 urlpatterns = [
     path('profile/', views.ProfileUpdate.as_view(), name="profile"),
+    path('profile/links/<str:username>', views.UserLinks.as_view(), name="links"),
     path('registration/', views.RegisterUser.as_view(), name="registration"),
     path('authorization/', views.login, name="auth"),
     path('exit/', auth_view.LogoutView.as_view(template_name='users/exit.html'), name="exit"),
