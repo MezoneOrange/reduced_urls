@@ -80,16 +80,25 @@ class ProfileUpdate(LoginRequiredMixin, View):
     @method_decorator(login_required)
     def get(self, request):
         """Used when you just move to the page. Displays current user's information in the form fields."""
+        item = User.objects.filter(username=self.request.user).values()[0]
+        name = item['username']
+        email = item['email']
         form = self.form_class(instance=request.user)
         data = {
             'title': 'Личный кабинет',
-            'form': form
+            'form': form,
+            'name': name,
+            'email': email
         }
+
         return render(request, self.template_name, data)
 
     @method_decorator(login_required)
     def post(self, request):
         """Used when you send changed data from the page."""
+        item = User.objects.filter(username=self.request.user).values()[0]
+        name = item['username']
+        email = item['email']
         form = self.form_class(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
@@ -98,7 +107,9 @@ class ProfileUpdate(LoginRequiredMixin, View):
         messages.error(request, f'Пользователь при обновлении профиля произошла ошибка')
         data = {
             'title': 'Личный кабинет',
-            'form': form
+            'form': form,
+            'name': name,
+            'email': email
         }
         return render(request, self.template_name, data)
 

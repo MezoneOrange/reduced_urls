@@ -24,7 +24,8 @@ class UserRegistrationForm(UserCreationForm):
                           "</ul>")
 
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'input'}),
-                             label='Почта')
+                             label='Почта',
+                             help_text=mark_safe("Обязательное поле."))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}),
                                 label='Пароль',
                                 help_text=mark_safe(help_password_text),
