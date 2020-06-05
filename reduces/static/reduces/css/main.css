@@ -98,6 +98,37 @@ header .header_block {
     box-shadow: 4px 5px 8px -4px rgba(0,0,0,0.75);
 }
 
+@keyframes rotate_scissors {
+    0% {
+        transform: rotateZ(-45deg);
+        left: -40px;
+        bottom: -30px;
+    }
+    25% {
+        left: -31px;
+        bottom: -46px;
+    }
+    50% {
+        left: -12px;
+        bottom: -62px;
+    }
+    100% {
+        transform: rotate(-115deg);
+        left: 5px;
+        bottom: -58px;
+    }
+
+}
+
+#logo:hover img {
+    animation-name: rotate_scissors;
+    animation-duration: 400ms;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+}
+
+
+
 
 #navigation > ul {
     display: flex;
