@@ -6,6 +6,15 @@
 
 <div class="form">
     <h2>Регистрация на сайте</h2>
+    {% if messages %}
+        {% for mess in messages %}
+            {% if mess.tags == 'error' %}
+                <div class="error_block">
+                    {{ mess }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
     <form method="POST">
         {% csrf_token %}
         {% for non_fiels_error in form.non_fiels_errors %}

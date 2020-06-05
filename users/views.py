@@ -9,8 +9,6 @@ from django.views import View
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.safestring import mark_safe
-from django.shortcuts import get_object_or_404
-from django.urls import reverse_lazy
 
 from .forms import UserRegistrationForm
 from .forms import UserUpdateForm
@@ -18,11 +16,23 @@ from .forms import UserLoginForm
 
 
 class RegisterUser(View):
+    """For registration page.
+
+    For display registration form and work with it. Saves new user to User model.
+
+    form_class - class that using for display form. (UserRegistrationForm)
+
+    model - model with that works the class. (User)
+
+    template_name - html template that using for work with registration. (users/registration.html)
+
+    """
     form_class = UserRegistrationForm
     model = User
     template_name = 'users/registration.html'
 
     def get(self, request):
+        """Used when you just move to the page."""
         form = self.form_class()
         data = {
             'title': 'Регистрация',
@@ -31,6 +41,7 @@ class RegisterUser(View):
         return render(request, self.template_name, data)
 
     def post(self, request):
+        """Used when you send data from the page."""
         form = self.form_class(request.POST)
         if form.is_valid():
             form.save()
@@ -46,12 +57,25 @@ class RegisterUser(View):
 
 
 class ProfileUpdate(LoginRequiredMixin, View):
+    """For profile page.
+
+    For display profile of authorised user and work with his username and email.
+    Allows to change user's username and email.
+
+    form_class - class that using for display form. (UserUpdateForm)
+
+    model - model with that works the class. (User)
+
+    template_name - html template that using for work with registration. (users/profile.html)
+
+    """
     form_class = UserUpdateForm
     model = User
     template_name = 'users/profile.html'
 
     @method_decorator(login_required)
     def get(self, request):
+        """Used when you just move to the page. Displays current user's information in the form fields."""
         form = self.form_class(instance=request.user)
         data = {
             'title': 'Личный кабинет',
@@ -61,6 +85,7 @@ class ProfileUpdate(LoginRequiredMixin, View):
 
     @method_decorator(login_required)
     def post(self, request):
+        """Used when you send changed data from the page."""
         form = self.form_class(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
@@ -75,6 +100,13 @@ class ProfileUpdate(LoginRequiredMixin, View):
 
 
 def login(request):
+    """Works with authorisation form.
+
+        users/auth.html
+
+    Allows to move to authorization page and to authorise user if sent data would be correct.
+
+    """
     error_message = ("<ul class='help_list'><li class='help_list_item'>" +
                      "Пожалуйста, введите правильно имя пользователя и пароль." +
                      " Оба поля могут быть чувствительны к регистру.</li></ul>")
