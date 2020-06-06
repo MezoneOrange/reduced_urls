@@ -54,7 +54,7 @@ class RegisterUser(View):
             username = form.cleaned_data.get("username")
             messages.success(request, f'Пользователь {username} был успешно создан!')
             return redirect('auth')
-        messages.error(request, f'Пользователь при создании пользователя произошла ошибка')
+        messages.error(request, f'При создании пользователя произошла ошибка')
         data = {
             'title': 'Регистрация',
             'form': form,
