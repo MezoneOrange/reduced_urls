@@ -120,7 +120,7 @@ header .header_block {
 
 }
 
-#logo:hover img {
+header:hover .header_block #logo img {
     animation-name: rotate_scissors;
     animation-duration: 400ms;
     animation-iteration-count: 2;
@@ -149,6 +149,10 @@ header .header_block {
     background-color: #191919;
     color: #fff;
     font-weight: 500;
+}
+
+.active_page {
+    cursor: not-allowed;
 }
 
 /* main */
@@ -373,7 +377,8 @@ main {
 }
 
 .links_profile .links_list {
-    margin-left: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     display: flex;
     flex-direction: column;
 }
@@ -383,6 +388,12 @@ main {
     font-family: 'PT Sans Narrow', sans-serif;
     font-weight: 700;
     margin-bottom: 20px;
+    border-radius: 3px;
+    padding: 10px 25px;
+}
+
+.links_profile .links_list p:hover {
+    background-color: #ece8e8;
 }
 
 .links_profile .links_list p a {
