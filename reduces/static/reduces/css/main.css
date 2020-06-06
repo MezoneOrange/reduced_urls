@@ -241,6 +241,34 @@ main {
     justify-content: center;
 }
 
+@media (max-width: 1460px) {
+    .show_content {
+        width: 60%;
+    }
+}
+
+@media (max-width: 990px) {
+    .show_content {
+        width: 80%;
+    }
+}
+
+@media (max-width: 750px) {
+    .show_content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    .show_content .promo h1 {
+        font-size: 35px;
+    }
+
+    .show_content .promo p {
+        font-size: 18px;
+    }
+}
+
 /* about */
 
 .about {
