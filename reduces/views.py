@@ -14,3 +14,17 @@ class HomePage(View):
             'title': 'Домашняя страница',
         }
         return render(request, 'reduces/home.html', data)
+
+
+class AboutPage(View):
+    """About page realisation.
+
+        reduces/about.html
+
+    """
+    def get(self, request):
+        """For move to about page."""
+        data = {
+            'title': "О нас",
+        }
+        return render(request, 'reduces/about.html', data)

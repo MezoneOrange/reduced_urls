@@ -28,7 +28,7 @@
             <div id="navigation">
                 <ul>
                     <li><a href="{% url 'home' %}" class={% block page_main %}{% endblock %}>Главная</a></li>
-                    <li><a href="" class={% block page_about %}{% endblock %}>Про нас</a></li>
+                    <li><a href="{% url 'about' %}" class={% block page_about %}{% endblock %}>Про нас</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}" class={% block page_profile %}{% endblock %}>Профиль</a></li>
                     <li><a href="{% url 'links' user.username %}" class={% block page_links %}{% endblock %}>Ссылки</a></li>

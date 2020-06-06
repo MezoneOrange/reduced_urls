@@ -189,6 +189,29 @@ main {
     justify-content: center;
 }
 
+/* about */
+
+.about {
+    margin: 25px;
+    line-height: 30px;
+}
+
+.about p {
+    margin-top: 70px;
+    font-size: 20px;
+    font-weight: 500;
+    color: grey;
+    text-align: justify;
+}
+
+.about p::first-letter {
+    margin-left: 40px;
+}
+
+.about h3 {
+    margin-top: 35px;
+}
+
 /* form */
 
 .message {
