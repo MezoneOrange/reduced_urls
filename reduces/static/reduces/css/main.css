@@ -292,6 +292,19 @@ main {
     margin-top: 35px;
 }
 
+@media (max-width: 770px) {
+    .about {
+        margin: 5px;
+    }
+}
+
+
+@media (max-width: 440px) {
+    .about p {
+        font-size: 16px;
+    }
+}
+
 /* form */
 
 .message {
@@ -311,6 +324,18 @@ main {
     box-shadow: 0px 2px 8px 0px rgba(107,107,107,1);
     background-color: #fff;
     box-sizing: content-box;
+}
+
+@media (max-width: 1030px) {
+    .form {
+        width: 70%;
+    }
+}
+
+@media (max-width: 600px) {
+    .form {
+        width: 80%;
+    }
 }
 
 .form h2:only-of-type {
@@ -407,6 +432,19 @@ main {
     color: #adadad;
     line-height: 25px;
     font-weight: 400;
+}
+
+@media (max-width: 770px) {
+    .form h2:only-of-type {
+        font-size: 35px;
+    }
+}
+
+
+@media (max-width: 440px) {
+    .form h2:only-of-type {
+        font-size: 25px;
+    }
 }
 
 /* profile */
