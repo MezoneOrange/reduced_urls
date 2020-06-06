@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
@@ -7,8 +10,10 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.views import View
 from django.views.generic import CreateView
+from django.views.generic import DeleteView
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.utils.safestring import mark_safe
 from django import forms
 from django.contrib.messages.views import SuccessMessageMixin
@@ -17,7 +22,6 @@ from .models import Link
 from .forms import UserRegistrationForm
 from .forms import UserUpdateForm
 from .forms import UserLoginForm
-from .forms import UserLinksForm
 
 
 class RegisterUser(View):
@@ -143,6 +147,14 @@ class UserLinks(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         context['title'] = f"Ссылки {self.kwargs.get('username')}"
         context['links'] = list(Link.objects.filter(author=self.request.user).values())
         return context
+
+
+@login_required
+def link_delete(request, username, id):
+    """Deletes short link inplace."""
+    link_object = Link.objects.get(id=id)
+    link_object.delete()
+    return HttpResponseRedirect(reverse('links', kwargs={'username': username}))
 
 
 def login(request):

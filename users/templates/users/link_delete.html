@@ -1,0 +1,18 @@
+{% extends 'reduces/index.html' %}
+
+{% block site_title %}{{ title }}{% endblock site_title %}
+
+{% block main_block %}
+
+<div class="form" class="d-flex justify-content-center">
+
+    <h2>Вы уверены?</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn_link mt-5">Удалить</button>
+        <a href="{% url 'links' user.username %}" class="btn btn_link mt-5">Обратно</a>
+    </form>
+</div>
+
+
+{% endblock main_block %}
