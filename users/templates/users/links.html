@@ -45,8 +45,10 @@
         <h2>Доступные ссылки</h2>
         <div class="links_list">
             {% for link in links %}
-                <p>Ссылка - <a href="{{ link.long_link }}" target="_blank">/link/{{ link.reduced_link }}</a><a href="{% url 'link_delete' user link.id %}" class="delete"><i class="fas fa-trash"></i></a></p>
-
+            <div class="links_item">
+                <p>Ссылка - <a href="{{ link.long_link }}" target="_blank">/link/{{ link.reduced_link }}</a></p>
+                <a href="{% url 'link_delete' user link.id %}" class="delete"><i class="fas fa-trash"></i></a>
+            </div>
             {% endfor %}
         </div>
     </div>
