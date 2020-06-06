@@ -10,10 +10,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.views import View
 from django.views.generic import CreateView
-from django.views.generic import DeleteView
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.mixins import UserPassesTestMixin
 from django.utils.safestring import mark_safe
 from django import forms
 from django.contrib.messages.views import SuccessMessageMixin
