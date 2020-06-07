@@ -19,7 +19,7 @@ class Link(models.Model):
                                 validators=[MaxLengthValidator(250), URLValidator()],)
     reduced_link = models.CharField(max_length=100,
                                     verbose_name="Сокращенная ссылка",
-                                    validators=[MaxLengthValidator(50)],
+                                    validators=[MaxLengthValidator(20)],
                                     unique=True)
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE)
