@@ -1,2 +1,4 @@
-/__pycache__/
 .DS_Store
+reduces/__pycache__/
+reduceurls/__pycache__/
+users/__pycache__/
