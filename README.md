@@ -25,6 +25,8 @@ EMAIL_PORT = 587
 
 ## On the website were used:
 - Fonts: "Ubuntu", "PT Sans Narrow", "Lobster" from https://fonts.google.com/ .
+- Social links icons from https://fontawesome.com/ .
+- favicon from https://www.iconfinder.com/ .
 - Styles: own-styles.
 
 ###### Creator: Dmitry Shelukhin
