@@ -2,3 +2,4 @@
 reduces/__pycache__/
 reduceurls/__pycache__/
 users/__pycache__/
+*.zip
